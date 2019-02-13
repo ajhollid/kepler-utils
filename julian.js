@@ -1,5 +1,5 @@
 const app = ( function () {
-  const getDate = ( gregorianDate ) => {
+  const getJulianDate = ( gregorianDate ) => {
     // Parses a date given in format YYYY/MM/DD
     let dateComponents = gregorianDate.split( '/' );
     dateComponents = dateComponents.map( ( component, index ) => {
@@ -15,10 +15,10 @@ const app = ( function () {
     return julianDay;
   };
 
-  const getJ2000 = () => getDate( '2000/1/1/' );
+  const getJ2000 = () => getJulianDate( '2000/1/1/' );
 
   return {
-    getDate,
+    getJulianDate,
     getJ2000,
   };
 }() );
@@ -26,7 +26,7 @@ const app = ( function () {
 console.log( app.getJ2000() );
 
 module.exports = {
-  getDate: app.getDate,
+  getJulianDate: app.getJulianDate,
   getJ2: app.getJ2000,
 };
 
