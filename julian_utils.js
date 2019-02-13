@@ -55,6 +55,7 @@ const julianApp = ( function () {
   return {
     getJulianDate,
     getGregorianDate,
+    getJ2000,
     getCenturiesSinceJ2000,
   };
 }() );
@@ -62,6 +63,7 @@ const julianApp = ( function () {
 module.exports = {
   getJulianDate: julianApp.getJulianDate,
   getGregorianDate: julianApp.getGregorianDate,
+  getJ2000: applicationCache.getJ2000,
   getCenturiesSinceJ2000: julianApp.getCenturiesSinceJ2000,
 
 };
