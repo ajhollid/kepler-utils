@@ -65,6 +65,5 @@ module.exports = {
   getGregorianDate: julianApp.getGregorianDate,
   getJ2000: applicationCache.getJ2000,
   getCenturiesSinceJ2000: julianApp.getCenturiesSinceJ2000,
-
 };
 
