@@ -61,6 +61,54 @@ const orbitalApp = ( function () {
     const z = r * ( Math.sin( toRadians( trueAnom + lPeri - lascNode ) ) * Math.sin( toRadians( i ) ) );
     return { x, y, z };
   };
+
+  const calcCorrection = ( el, cY, cSinceJ2000, isAngle ) => {
+    let correction = el + ( cY * cSinceJ2000 );
+    if ( isAngle ) {
+      while ( correction < 0 ) {
+        correction += 360;
+      }
+      correction %= 360;
+    }
+    return correction;
+  };
+
+  const calcSemiMinorAxis = ( e, a ) => Math.sqrt( 1 - ( e ** 2 ) ) * a;
+
+  // Data from https://ssd.jpl.nasa.gov/?planet_pos, valid 1800-2050
+  const calcOrbitals = ( planet, cSinceJ2000 ) => {
+    const generatedOrbitals = {};
+    const { elements, cYs } = planet.orbit;
+    const keys = Object.keys( elements );
+    keys.forEach( ( key ) => {
+      const el = elements[key].val;
+      const cY = cYs[key].val;
+      generatedOrbitals[key] = calcCorrection( el, cY, cSinceJ2000, elements[key].deg );
+    } );
+
+    // Mean anomaly
+    generatedOrbitals.M = calcMeanAnom( generatedOrbitals.L, generatedOrbitals.lPeri );
+
+    // Eccentric anomaly
+    generatedOrbitals.eccAnom = calcEccAnom( generatedOrbitals.e, generatedOrbitals.M, 6 );
+
+    // True anomaly
+    generatedOrbitals.trueAnom = calcTrueAnom( generatedOrbitals.e, generatedOrbitals.eccAnom );
+
+    // Semi minor axis
+    generatedOrbitals.b = calcSemiMinorAxis( generatedOrbitals.e, generatedOrbitals.a );
+
+    // Heliocentric Coords
+    generatedOrbitals.helioCentricCoords = calcHelioCentric(
+      generatedOrbitals.a,
+      generatedOrbitals.e,
+      generatedOrbitals.i,
+      generatedOrbitals.trueAnom,
+      generatedOrbitals.lAscNode,
+      generatedOrbitals.lPeri,
+    );
+    return generatedOrbitals;
+  };
 }() );
 
 module.exports = {
