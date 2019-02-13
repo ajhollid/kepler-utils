@@ -15,9 +15,18 @@ const app = ( function () {
     return julianDay;
   };
 
-  return { getDate };
+  const getJ2000 = () => getDate( '2000/1/1/' );
+
+  return {
+    getDate,
+    getJ2000,
+  };
 }() );
 
+console.log( app.getJ2000() );
 
-module.exports = { getDate: app.getDate };
+module.exports = {
+  getDate: app.getDate,
+  getJ2: app.getJ2000,
+};
 
