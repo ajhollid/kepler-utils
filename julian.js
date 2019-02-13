@@ -1,4 +1,4 @@
-const app = ( function () {
+const julianApp = ( function () {
   const JULIAN_CENTURY_IN_DAYS = 36525;
   // https://en.wikipedia.org/wiki/Julian_day#Converting_Gregorian_calendar_date_to_Julian_Day_Number
   // Parses a date given in format YYYY/MM/DD
@@ -59,9 +59,9 @@ const app = ( function () {
 }() );
 
 module.exports = {
-  getJulianDate: app.getJulianDate,
-  getJ2000: app.getJ2000,
-  getGregorianDate: app.getGregorianDate,
-  getJulianCenturyInDays: app.gettJulianCenturyInDays,
+  getJulianDate: julianApp.getJulianDate,
+  getJ2000: julianApp.getJ2000,
+  getGregorianDate: julianApp.getGregorianDate,
+  getJulianCenturyInDays: julianApp.gettJulianCenturyInDays,
 };
 
