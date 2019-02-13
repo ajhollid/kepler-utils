@@ -1,5 +1,8 @@
+/* eslint max-len: 0 */ // disable rule for clarity
+
 const orbitalApp = ( function () {
   const SCALE = 80;
+  const toRadians = deg => deg * Math.PI / 180;
 
   // https://en.wikipedia.org/wiki/Mean_longitude
   // angle, 360 degres, calculated from mean longitude: l = ϖ + M,
@@ -36,6 +39,16 @@ const orbitalApp = ( function () {
 
     E /= K;
     return Math.round( E * ( 10 ** decimalPlaces ) ) / ( 10 ** decimalPlaces );
+  };
+
+  // http://www.braeunig.us/space/plntpos.htm
+  const calcTrueAnom = ( ecc, eccAnom ) => {
+    const K = Math.PI / 180;
+    const trueAnomArg = ( Math.sqrt( ( 1 + ecc ) / ( 1 - ecc ) ) ) * ( Math.tan( toRadians( eccAnom ) / 2 ) );
+    if ( trueAnomArg < 0 ) {
+      return 2 * ( ( Math.atan( trueAnomArg ) / K ) + 180 );
+    }
+    return 2 * ( Math.atan( trueAnomArg ) / K );
   };
 }() );
 
