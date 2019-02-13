@@ -109,8 +109,12 @@ const orbitalApp = ( function () {
     );
     return generatedOrbitals;
   };
+  return {
+    calcOrbitals,
+  };
 }() );
 
 module.exports = {
+  calcOrbitals: orbitalApp.calcOrbitals,
 };
 

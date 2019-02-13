@@ -20,8 +20,6 @@ const julianApp = ( function () {
     return julianDay;
   };
 
-  const getJ2000 = () => getJulianDate( '2000/1/1/' );
-
   const getGregorianDate = ( julianDate ) => {
     const y = 4716;
     const v = 3;
@@ -47,21 +45,24 @@ const julianApp = ( function () {
     return new Date( year, month - 1, day );
   };
 
-  const getJulianCenturyInDays = () => JULIAN_CENTURY_IN_DAYS;
+  const getJ2000 = () => getJulianDate( '2000/1/1/' );
 
+  const getCenturiesSinceJ2000 = ( gregorianDate ) => {
+    const julianDate = getJulianDate( gregorianDate );
+    return ( julianDate - getJ2000() ) / JULIAN_CENTURY_IN_DAYS;
+  };
 
   return {
     getJulianDate,
-    getJ2000,
     getGregorianDate,
-    getJulianCenturyInDays,
+    getCenturiesSinceJ2000,
   };
 }() );
 
 module.exports = {
   getJulianDate: julianApp.getJulianDate,
-  getJ2000: julianApp.getJ2000,
   getGregorianDate: julianApp.getGregorianDate,
-  getJulianCenturyInDays: julianApp.gettJulianCenturyInDays,
+  getCenturiesSinceJ2000: julianApp.getCenturiesSinceJ2000,
+
 };
 
