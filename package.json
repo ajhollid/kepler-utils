@@ -1,9 +1,9 @@
 {
     "name" : "kepler-utils",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "Utilities for calculating planetary orbits using Kepler's laws and orbital elements",
     "license": "MIT",
-    "repository": "popnfresh234/kepler_utils",
+    "repository": "popnfresh234/kepler-utils",
     "main": "index.js",
     "keywords": [
         "kepler",
