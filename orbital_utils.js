@@ -76,14 +76,14 @@ const orbitalApp = ( function () {
   const calcSemiMinorAxis = ( e, a ) => Math.sqrt( 1 - ( e ** 2 ) ) * a;
 
   // Data from https://ssd.jpl.nasa.gov/?planet_pos, valid 1800-2050
-  const calcOrbitals = ( planet, cSinceJ2000 ) => {
+  const calcOrbitals = ( planet, centuriesSinceJ2000 ) => {
     const generatedOrbitals = {};
     const { elements, cYs } = planet.orbit;
     const keys = Object.keys( elements );
     keys.forEach( ( key ) => {
       const el = elements[key].val;
       const cY = cYs[key].val;
-      generatedOrbitals[key] = calcCorrection( el, cY, cSinceJ2000, elements[key].deg );
+      generatedOrbitals[key] = calcCorrection( el, cY, centuriesSinceJ2000, elements[key].deg );
     } );
 
     // Mean anomaly
