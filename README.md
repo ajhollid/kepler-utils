@@ -18,19 +18,19 @@ You will need to have the [NodeJS](https://nodejs.org/en/) environment installed
 You can add this package to your project by running
 
 ```
-npm install kepler-utils
+$ npm install kepler-utils
 ```
 
 You can also clone this project if you want to use it without NodeJS
 
 ```
-git clone https://github.com/popnfresh234/kepler-utils.git
+$ git clone https://github.com/popnfresh234/kepler-utils.git
 ```
 
 ### Usage
 First, require the module in your project
 
-```
+```js
 const KeplerUtils = require('kepler-utils');
 ```
 
@@ -38,7 +38,7 @@ The `KeplerUtils` project contains two helper modules, `JulianUtils` for convert
 
 Typical usage would be to calculate the orbital positions of a planet at a given date.  For this we make use of the `OrbitalUtils` module.  The `OribtalUtils` module provides a method that takes a planet object provided by `KeplerUtils` and the number of centuries since the [J2000](https://en.wikipedia.org/wiki/Earth-centered_inertial#J2000) reference frame.  The number of centuries since J2000 is given by a helper method in the `JulianUtils` module.
 
-```
+```js
 const SolarSystem = const SolarSystem = KeplerUtils.SolarSystem;
 const centuriesSinceJ2000 = KeplerUtils.Julianutils.getCenturiesSincej2000('1984/04/30');
 const marsPosition = KeplerUtils.OrbitalUtils.calcOrbitals(SolarSystem.mars, centuriesSinceJ2000);
@@ -46,26 +46,26 @@ const marsPosition = KeplerUtils.OrbitalUtils.calcOrbitals(SolarSystem.mars, cen
 
 #### JulianUtils Functions
 
-```
+```js
 getJulianDate ( gregorianDate )
 ```
 
 Takes a Gregorian date in the format `YYYY/MM/DD` and returns the equivalent Julian Date
 
 
-```
+```js
 getGregorianDate ( julianDate )
 ```
 
 Takes a Julian date and returns a [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) object for that day.
 
 
-```
+```js
 getJ2000 ()
 ```
 Returns the Julian date for the J2000 reference date of 2000/1/1
 
-```
+```js
 getCenturiesSinceJ2000 ( gregorianDate )
 ```
 
@@ -74,7 +74,7 @@ Takes a Gregorian date in the format `YYYY/MM/DD` and returns the numbers of cen
 
 #### OrbitalUtils Functions
 
-```
+```js
 calcOrbitals ( planet, centuriesSinceJ2000 )
 ```
 
@@ -82,7 +82,7 @@ Takes a `Planet` object provided by `KeplerUtils.SolarSystem` and the number of 
 
 Typical output is as follows:
 
-```
+```js
 {
   a: 1.5237076300553047,
   e: 0.09338253541738535,
