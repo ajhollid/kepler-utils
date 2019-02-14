@@ -119,8 +119,28 @@ The keys of the returned object is as follows:
 |b|semi minor axis|au|
 |heliocentricCoords|rectangular coords of plaents|au|
 
+
 This data can then be used to plot the positions of the planets for whatever use case you may have.
 
+```js
+getPlutoFullOrbit ()
+```
+
+This method returns an `[]` of objects containing rectangular coordinates for an entire period of Pluto's orbit.  As Pluto's orbit doesn't fit a perfect ellipse well, we can make use of  these points to manually plot the path of Pluto's orbit for dispaly purposes.
+
+An example of the output of this function is as follow:
+
+```js
+[ 
+  { x: -20.256870769288906,
+    y: -20.126040799230992,
+    z: 8.01303272889247 },
+  { x: -20.209017036396666,
+    y: -20.177347181609036,
+    z: 8.004682070653734 },
+    ...
+]
+```
 
 ## Versioning
 
