@@ -47,10 +47,7 @@ const julianApp = ( function () {
 
   const getJ2000 = () => getJulianDate( '2000/1/1/' );
 
-  const getCenturiesSinceJ2000 = ( gregorianDate ) => {
-    const julianDate = getJulianDate( gregorianDate );
-    return ( julianDate - getJ2000() ) / JULIAN_CENTURY_IN_DAYS;
-  };
+  const getCenturiesSinceJ2000 = julianDate => ( julianDate - getJ2000() ) / JULIAN_CENTURY_IN_DAYS;
 
   return {
     getJulianDate,
