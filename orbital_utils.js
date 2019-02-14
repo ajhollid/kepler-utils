@@ -1,8 +1,6 @@
 /* eslint max-len: 0 */ // disable rule for clarity
 const PLUTO_FULL_ORBIT = require( './pluto.json' );
 
-console.log( PLUTO_FULL_ORBIT );
-
 const orbitalApp = ( function () {
   const SCALE = 80;
   const toRadians = deg => deg * Math.PI / 180;
