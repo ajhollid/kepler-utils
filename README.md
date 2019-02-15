@@ -40,8 +40,8 @@ Typical usage would be to calculate the orbital positions of a planet at a given
 
 ```js
 const SolarSystem = KeplerUtils.SolarSystem;
-const julianDate = KeplerUtils.getJulianDate('1985/04/30');
-const centuriesSinceJ2000 = KeplerUtils.Julianutils.getCenturiesSincej2000(julianDate);
+const julianDate = KeplerUtils.JulianUtils.getJulianDate('1985/04/30');
+const centuriesSinceJ2000 = KeplerUtils.JulianUtils.getCenturiesSincej2000(julianDate);
 const marsPosition = KeplerUtils.OrbitalUtils.calcOrbitals(SolarSystem.mars, centuriesSinceJ2000);
 ```
 
