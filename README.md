@@ -6,10 +6,10 @@
 ![](https://img.shields.io/github/languages/top/popnfresh234/kepler-utils.svg?style=flat)
 
 # Kepler Utils
-This node package uses JPL's [Keplerian Elements for Aproximation of the Major Planets](https://ssd.jpl.nasa.gov/?planet_pos) to calculate the heliocentric positions of the planets in our solar system for a given date.  It provides a set of tools for converting Gregorian dates to Julian dates as well as calculating the positions of the planets.
+This node package uses JPL's [Keplerian Elements for Aproximate Positions of the Major Planets](https://ssd.jpl.nasa.gov/?planet_pos) to calculate the heliocentric positions of the planets in our solar system on a given date.  It provides a set of tools for converting Gregorian dates to Julian dates as well as calculating the positions of the planets.
 
 ## Getting Started
-Follow the instructions below to get this module up and running on your sytstem
+Follow the instructions below to get this project up and running on your sytstem
 
 ### Prerequisites
 You will need to have the [NodeJS](https://nodejs.org/en/) environment installed on your machine if you want to use the [NodeJS Package Manager](https://www.npmjs.com/) to install this project.
