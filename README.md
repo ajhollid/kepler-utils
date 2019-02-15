@@ -39,7 +39,7 @@ The `KeplerUtils` project contains two helper modules, `JulianUtils` for convert
 Typical usage would be to calculate the orbital positions of a planet at a given date.  For this we make use of the `OrbitalUtils` module.  The `OribtalUtils` module provides a method that takes a planet object provided by `KeplerUtils` and the number of centuries since the [J2000](https://en.wikipedia.org/wiki/Earth-centered_inertial#J2000) reference frame.  The number of centuries since J2000 is given by a helper method in the `JulianUtils` module.
 
 ```js
-const SolarSystem = const SolarSystem = KeplerUtils.SolarSystem;
+const SolarSystem = KeplerUtils.SolarSystem;
 const julianDate = KeplerUtils.getJulianDate('1985/04/30');
 const centuriesSinceJ2000 = KeplerUtils.Julianutils.getCenturiesSincej2000(julianDate);
 const marsPosition = KeplerUtils.OrbitalUtils.calcOrbitals(SolarSystem.mars, centuriesSinceJ2000);
