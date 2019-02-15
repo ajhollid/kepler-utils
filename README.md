@@ -50,7 +50,7 @@ const marsPosition = KeplerUtils.OrbitalUtils.calcOrbitals(SolarSystem.mars, cen
 
 ```js
 const SolarSystem = KeplerUtils.SolarSystem;
-const mars = SolarSystem.mars
+const mars = SolarSystem.mars;
 ```
 
 A planet object is structured as follows:
@@ -89,7 +89,7 @@ To calculate the position of the planet we use the `orbit` object, which contain
 For example, to find the eccentricity on `1985/04/30` we would perform the following operation:
 
 ```js
-orbit.elements.a + ( orbit.cYs.a * centuriesSinceJ2000 )
+orbit.elements.a + ( orbit.cYs.a * centuriesSinceJ2000 );
 ```
 
 The above is for reference only, this calculation is actually caried out in the `OrbitalUtils` module.
