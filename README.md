@@ -45,6 +45,55 @@ const centuriesSinceJ2000 = KeplerUtils.Julianutils.getCenturiesSincej2000(julia
 const marsPosition = KeplerUtils.OrbitalUtils.calcOrbitals(SolarSystem.mars, centuriesSinceJ2000);
 ```
 
+#### SolarSystem
+`KeplerUtils` provides a `SolarySystem` object that has whose keys are the planet names, eg `mars`, and whose properties are data about the planets  You can access the objet as follows:
+
+```js
+const SolarSystem = KeplerUtils.SolarSystem;
+const mars = SolarSystem.mars
+```
+
+A planet object is structured as follows:
+
+```js
+const mars = {
+  display: 'Mars',
+  name: 'mars',
+  scaleFactor: 1,
+  rFactor: 0.532,
+  color: '#CF7167',
+  apiDate: '1987/9/4',
+  periDate: '1988/8/13',
+  orbit: {
+    elements: {
+      a: { val: 1.52371034, deg: false },
+      e: { val: 0.0933941, deg: false },
+      i: { val: 1.84969142, deg: true },
+      L: { val: -4.55343205, deg: true },
+      lPeri: { val: -23.94362959, deg: true },
+      lAscNode: { val: 49.55953891, deg: true },
+    },
+    cYs: {
+      a: { val: 0.00001847, deg: false },
+      e: { val: 0.00007882, deg: false },
+      i: { val: -0.00813131, deg: true },
+      L: { val: 19140.30268499, deg: true },
+      lPeri: { val: 0.44441088, deg: true },
+      lAscNode: { val: -0.29257343, deg: true },
+    },
+  },
+};
+```
+To calculate the position of the planet we use the `orbit` object, which contains the planet's orbital `elements` at J2000 and the `cYs` to be applied to those elements to find their position at a given date.
+
+For example, to find the eccentricity on `1985/04/30` we would perform the following operation:
+
+```js
+orbit.elements.a + ( orbit.cYs.a * centuriesSinceJ2000 )
+```
+
+The above is for reference only, this calculation is actually caried out in the `OrbitalUtils` module.
+
 #### JulianUtils Functions
 
 ```js
